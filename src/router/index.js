@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Financial from '@/views/Financial'
 import PDF from '@/views/PDF'
 import Add from '@/views/Add'
+import Tools from '@/views/Tools'
 Vue.use(Router)
 
 export default new Router({
@@ -27,6 +28,11 @@ export default new Router({
       path: '/add',
       name: 'Add',
       component: Add
+    },
+    {
+      path: '/tools',
+      name: 'Tools',
+      component: Tools
     }
   ]
 })

@@ -1,8 +1,7 @@
 <template>
 
   <div id="app">
-    <img src="./assets/logo.png" alt="love">
-    <div style="width: 100%;">
+    <div class="menuBack" style="width: 100%;">
     <div class="menu">
       <el-menu
         :default-active="activeIndex"
@@ -14,10 +13,11 @@
         active-text-color="#ffd04b"
         router 
         >
-        <el-menu-item index="/" >Home</el-menu-item>
-        <el-menu-item index="Financial" >Financial Analysis</el-menu-item>
-        <el-menu-item index="PDF">PDF Split</el-menu-item>
-        <el-menu-item index="Add" disabled>待添加</el-menu-item>
+        <el-menu-item index="/" ><i class="el-icon-news" style="color:white"></i>Home</el-menu-item>
+        <el-menu-item index="Financial" ><i class="el-icon-edit" style="color:white"></i>Financial Analysis</el-menu-item>
+        <el-menu-item index="PDF"><i class="el-icon-tickets" style="color:white"></i>PDF Split</el-menu-item>
+        <el-menu-item index="Tools"><i class="el-icon-goods" style="color:white"></i>Common Tools</el-menu-item>
+        <el-menu-item index="Add" disabled><i class="el-icon-more-outline" style="color:white"></i>待添加</el-menu-item>
       </el-menu>
     </div>
     </div>
@@ -26,8 +26,18 @@
       <router-view ></router-view>
       </transition>
     </div>
+    <!--公用Foot和友情链接-->
+    <div class="footer">
+      <div class="footer-bd">
+        <p>
+          <em>&copy; Lujun  版权所有</em>
+          <b>|</b>
+          <span>粤ICP备14020827号-1</span>
+        </p>
+      </div>
       
-    
+    </div> 
+        
   </div>
 </template>
 
@@ -48,7 +58,7 @@ export default {
     };
   },
   created() {},
-  
+
   methods: {
     getList() {
       axios.get("url").then(res => {
@@ -63,7 +73,7 @@ export default {
 </script>
 
 <style>
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -74,17 +84,27 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: rgb(255, 255, 238);
-  
 }
 .menu {
-  width: 50%;
-  margin: 0 auto;
+  width: 60%;
+  margin:auto;
+  bottom:0;
+  padding-top: 240px;
+
+}
+.menuBack{
+  height: 300px;
+  background-image: url('./assets/logo.png');
+  background-size: 100%;
+  background-repeat: none;
+  position:relative;
+  margin:auto;
 }
 .fade-enter-active {
   transition: opacity 1s;
 }
-.fade-leave-active{
-   transition: opacity 0s;
+.fade-leave-active {
+  transition: opacity 0s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
