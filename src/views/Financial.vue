@@ -8,6 +8,7 @@
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
+            background-color="#ffffee"
             router >
             <el-menu-item index="/assets">
              <i class="el-icon-menu"></i>
@@ -71,14 +72,14 @@ export default {
 #financialEnum{
   margin-top:-20px;
   height: 100%;
-  width: 12.5%;
-  background-color: white;
+  width: 20%;
+  background-color:  rgb(255, 255, 238);
   float: left;
 }
 .child{
   float: left;
    background-color: red;
-   width: 87.5%;
+   width: 78%;
    height: 100%;
    margin-top:-20px;
 }

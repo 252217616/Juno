@@ -2,13 +2,16 @@
 
   <div id="app">
     <div class="menuBack" style="width: 100%;">
+      <div id = "logo" >
+        <img src="./assets/logo.png" alt="logo" style="width:100%;height:100%">
+      </div>
     <div class="menu">
       <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
         @select="handleSelect"
-        background-color="#545c64"
+        background-color="#545264"
         text-color="#fff"
         active-text-color="#ffd04b"
         router 
@@ -90,15 +93,23 @@ export default {
   margin:auto;
   bottom:0;
   padding-top: 240px;
+  
+  
 
 }
 .menuBack{
   height: 300px;
-  background-image: url('./assets/logo.png');
-  background-size: 100%;
-  background-repeat: none;
+  background-color:  rgb(255, 255, 238);
   position:relative;
   margin:auto;
+}
+#logo{
+  width:500px;
+  height:210px;
+  position: absolute;
+  left: 40%;
+  margin: auto;
+  margin-top: 20px;
 }
 .fade-enter-active {
   transition: opacity 1s;
