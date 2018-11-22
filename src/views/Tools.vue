@@ -2,7 +2,7 @@
   <div class="tools" >
     <div > 
       <el-row >
-        <el-col :span="8" v-for="i in list">
+        <el-col :span="8" v-for="i in list" :key="i.name"> 
           <el-card :body-style="{ padding: '10px' }" shadow="hover" style="width:300px;">
             <div style="padding: 14px;">
               <span>{{i.name}}</span>
