@@ -10,7 +10,7 @@ export default {
   data () {
     return {
       msg: '',
-      lu: 'sb'
+      lu: 'sb2'
     }
   }
 }

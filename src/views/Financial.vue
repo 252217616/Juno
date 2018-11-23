@@ -33,7 +33,7 @@
       </el-row>
      </div>
      <div class="child">
-       <div style="margin-top:20px">
+       <div style="margin-top:20px ; height:800px;overflow:auto">
          <transition name="fade" >
             <router-view ></router-view>
           </transition>
@@ -66,7 +66,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .financial{
-  height: 800px;
+  height: 800px  ;
   
 }
 #financialEnum{
@@ -78,9 +78,9 @@ export default {
 }
 .child{
   float: left;
-   background-color: red;
+  
    width: 78%;
-   height: 100%;
+   
    margin-top:-20px;
 }
 .el-col-3{

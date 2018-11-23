@@ -29,17 +29,7 @@
       <router-view ></router-view>
       </transition>
     </div>
-    <!--公用Foot和友情链接-->
-    <div class="footer">
-      <div class="footer-bd">
-        <p>
-          <em>&copy; Lujun  版权所有</em>
-          <b>|</b>
-          <span>粤ICP备14020827号-1</span>
-        </p>
-      </div>
-      
-    </div> 
+    
         
   </div>
 </template>
@@ -89,7 +79,7 @@ export default {
   background-color: rgb(255, 255, 238);
 }
 .menu {
-  width: 60%;
+  
   margin:auto;
   bottom:0;
   padding-top: 240px;
