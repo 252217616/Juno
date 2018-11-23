@@ -7,9 +7,9 @@
           <tr style="background-color:#9AFF9A">
             <th class="tac" style="width:10%">序号</th>
             <th class="tac" style="width:20%">科目</th>
-            <th class="tac" style="width:20%">前年数据</th>
-            <th class="tac" style="width:20%">今年数据</th>
-            <th class="tac" style="width:20%">明年数据</th>
+            <th class="tac" style="width:20%">{{getDate(2)}}</th>
+            <th class="tac" style="width:20%">{{getDate(1)}}</th>
+            <th class="tac" style="width:20%">{{getDate(0)}}</th>
           </tr>
         </thead>
         <tbody>
@@ -192,6 +192,11 @@ export default {
     },
     test(){
       console.log(this.list);
+    },
+    getDate(num){
+      var data = new Date();
+      var year = data.getFullYear()-num;
+      return year;
     }
   }
 };

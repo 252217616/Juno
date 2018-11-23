@@ -19,7 +19,7 @@
               <i class="el-icon-share"></i>
               <span slot="title">负债信息</span>
             </el-menu-item>
-            <el-menu-item index="/cash" >
+            <el-menu-item index="/fcash" >
               <i class="el-icon-document"></i>
               <span slot="title">现金流信息</span>
             </el-menu-item>

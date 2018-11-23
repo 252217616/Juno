@@ -31,7 +31,7 @@ export default new Router({
         },
         {
           path: '/cash',
-          name: 'cash',
+          name: 'fcash',
           component: FCash
         },
         {
@@ -46,7 +46,7 @@ export default new Router({
         },
         {
           path: '/',
-          name: 'home',
+          name: 'fhome',
           component: FHome
         }
       ]
