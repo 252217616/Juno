@@ -73,6 +73,11 @@ export default {
           name: "中登网",
           url: "https://www.zhongdengwang.org.cn/zhongdeng/index.shtml",
           info: "抵质押查询"
+        },
+         {
+          name: "中国证券结算网",
+          url: "http://www.chinaclear.cn/zdjs/gpzyshg/center_mzzbhg.shtml",
+          info: "股权质押查询"
         }
       ],
       currentDate: new Date()
