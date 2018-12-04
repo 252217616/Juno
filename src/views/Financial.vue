@@ -23,7 +23,7 @@
               <i class="el-icon-document"></i>
               <span slot="title">建设中</span>
             </el-menu-item>
-            <el-menu-item index="/result" disabled>
+            <el-menu-item index="/result" >
               <i class="el-icon-setting"></i>
               <span slot="title" >建设中</span>
             </el-menu-item>
