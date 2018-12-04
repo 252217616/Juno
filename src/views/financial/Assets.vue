@@ -17,19 +17,27 @@
               <td style="vertical-align:middle;" >{{i.no}}</td>
               <td style="vertical-align:middle;" >{{i.name}}</td>
               <td ><input type="text" class="form-control" v-model="i.before"> </td>
-              <td ><input type="text" class="form-control" v-model="i.now"> </td>
-              <td ><input type="text" class="form-control" v-model="i.next"> </td>
+              <td ><input type="text" class="form-control" v-model="i.mid"> </td>
+              <td ><input type="text" class="form-control" v-model="i.after"> </td>
            </tr>
          </tbody>
-
       </table>
-      
+      <div class="center">
+        <el-button type="success" @click="submit()" round>提交分析</el-button>
+        <el-button type="danger" @click="reset()" round>重置</el-button>
+      </div>
+      <div style="height:30px">
+        
+      </div>
    </div>
      
   </div>
 </template>
 
 <script>
+import {postHttp} from "@/assets/js/ajax"
+
+
 export default {
   name: "assets",
   data() {
@@ -40,148 +48,209 @@ export default {
           no: 1,
           name: "货币资金",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
         {
           no: 2,
-          name: "交易性金融资产",
+          name: "应收票据",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 3,
-          name: "应收票据",
+          name: "应收账款",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 4,
-          name: "应收股利",
+          name: "其他应收款",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 5,
-          name: "应收利息",
+          name: "存货",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 6,
-          name: "应收账款",
+          name: "流动资产合计",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:true
         },
          {
           no: 7,
-          name: "其他应收款",
+          name: "非流动资产合计",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:true
         },
          {
           no: 8,
-          name: "预付账款",
+          name: "资产总计",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 9,
-          name: "应收补贴款",
+          name: "短期借款",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 10,
-          name: "存货",
+          name: "应付票据",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 11,
-          name: "待摊费用",
+          name: "应付帐款",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 12,
-          name: "   一年内到期的长期债权投资",
+          name: "其他应付款",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 13,
-          name: "其他流动资产",
+          name: "一年内到期的长期负债",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 14,
-          name: "流动资产合计",
+          name: "流动负债合计",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 15,
-          name: "长期股权投资",
+          name: "非流动负债合计",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 16,
           name: "长期债权投资",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 17,
-          name: "长期投资合计",
+          name: "负债总计",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 18,
-          name: "固定资产净值",
+          name: "所有者权益（或股东权益）合计",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 19,
-          name: "工程物资",
+          name: "主营业务收入",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 20,
-          name: "在建工程",
+          name: "主营业务成本",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
         },
          {
           no: 21,
-          name: "固定资产清理",
+          name: "财务费用",
           before: "",
-          now: "",
-          next: ""
+          mid: "",
+          after: "",
+          type:false
+        },
+         {
+          no: 22,
+          name: "营业费用",
+          before: "",
+          mid: "",
+          after: "",
+          type:false
+        },
+         {
+          no: 23,
+          name: "管理费用",
+          before: "",
+          mid: "",
+          after: "",
+          type:false
+        },
+         {
+          no: 24,
+          name: "利润总额",
+          before: "",
+          mid: "",
+          after: "",
+          type:false
+        },
+         {
+          no: 25,
+          name: "所得税",
+          before: "",
+          mid: "",
+          after: "",
+          type:false
+        },
+         {
+          no: 26,
+          name: "净利润",
+          before: "",
+          mid: "",
+          after: "",
+          type:false
         }
       ]
     };
@@ -197,6 +266,18 @@ export default {
       var data = new Date();
       var year = data.getFullYear()-num;
       return year;
+    },
+    reset(){
+      for(var i in this.list){
+        this.list[i].before = "";
+        this.list[i].mid = "";
+        this.list[i].after = "";
+      }
+    },
+    submit () {
+       postHttp("http://localhost:8320/juno/finance/analys",this.list).then(res => {
+        console.log(res.data.result);
+      });
     }
   }
 };

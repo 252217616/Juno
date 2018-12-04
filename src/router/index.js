@@ -9,7 +9,6 @@ import FAssets from '@/views/financial/Assets'
 import FCash from '@/views/financial/Cash'
 import FLiabi from '@/views/financial/Liabilities'
 import FResult from '@/views/financial/Result'
-import FHome from '@/views/financial/Home'
 Vue.use(Router)
 
 export default new Router({
@@ -25,12 +24,17 @@ export default new Router({
       component: Financial,
       children: [
         {
-          path: '/assets',
+          path: '/',
           name: 'Assets',
           component: FAssets
         },
         {
-          path: '/cash',
+          path: '/asset',
+          name: 'Assets',
+          component: FAssets
+        },
+        {
+          path: '/fcash',
           name: 'fcash',
           component: FCash
         },
@@ -43,11 +47,6 @@ export default new Router({
           path: '/result',
           name: 'result',
           component: FResult
-        },
-        {
-          path: '/',
-          name: 'fhome',
-          component: FHome
         }
       ]
     },

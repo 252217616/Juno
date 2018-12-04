@@ -10,22 +10,22 @@
             @close="handleClose"
             background-color="#ffffee"
             router >
-            <el-menu-item index="/assets">
+            <el-menu-item index="/asset">
              <i class="el-icon-menu"></i>
-              <span slot="title">资产信息</span>
+              <span slot="title">财务分析</span>
              
             </el-menu-item>
             <el-menu-item index="/Liabilities">
               <i class="el-icon-share"></i>
-              <span slot="title">负债信息</span>
+              <span slot="title">建设中</span>
             </el-menu-item>
             <el-menu-item index="/fcash" >
               <i class="el-icon-document"></i>
-              <span slot="title">现金流信息</span>
+              <span slot="title">建设中</span>
             </el-menu-item>
-            <el-menu-item index="/result">
+            <el-menu-item index="/result" disabled>
               <i class="el-icon-setting"></i>
-              <span slot="title">结果</span>
+              <span slot="title" >建设中</span>
             </el-menu-item>
           </el-menu>
         </el-col>

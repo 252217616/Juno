@@ -1,6 +1,6 @@
 <template>
   <div class="cash">
-      cash
+      建设中
   </div>
 </template>
 

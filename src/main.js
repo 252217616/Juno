@@ -7,6 +7,7 @@ import jquery from 'jquery'
 import './assets/css/bootstrap.min.css'   
 
 
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

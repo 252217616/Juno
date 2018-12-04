@@ -1,6 +1,6 @@
 <template>
   <div class="liabi">
-      liabi
+      建设中
   </div>
 </template>
 
