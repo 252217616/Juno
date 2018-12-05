@@ -27,8 +27,6 @@ export default {
   name: "tools",
   data() {
     return {
-      msg: "",
-      lu: "sb",
       list: [
         {
           name: "国家企业信用信息公示系统",
@@ -40,8 +38,8 @@ export default {
           url: "http://qyxy.baic.gov.cn/",
           info: "工商信息"
         },
-        { name: "企查查", 
-          url: "https://www.qichacha.com/", 
+        { name: "启信宝", 
+          url: "https://www.qixin.com/", 
           info: "工商信息" 
         },
         {
@@ -55,6 +53,11 @@ export default {
           info: "老赖查询"
         },
         {
+          name: "人民法院公告网",
+          url: "https://rmfygg.court.gov.cn/",
+          info: "法院公告"
+        },
+        {
           name: "中国债券信息网",
           url: "http://www.chinabond.com.cn/",
           info: "发债信息"
@@ -63,6 +66,11 @@ export default {
           name: "东方财富网",
           url: "http://www.eastmoney.com/",
           info: "上市公司"
+        },
+        {
+          name: "中小企业股份转让查询",
+          url: "http://www.neeq.com.cn/",
+          info: "新三板公告"
         },
         {
           name: "银行间市场交易",
@@ -84,10 +92,6 @@ export default {
     };
   },
   methods: {
-    test() {
-      list = [1111, 2222];
-      return list;
-    },
     openPage(url) {
       window.open(url, "_blank");
     }

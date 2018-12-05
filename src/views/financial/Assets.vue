@@ -1,6 +1,6 @@
 <template>
 
-  <div class="assets">
+  <div class="assets" >
      <transition name="fade" >
         <div v-show="analy">
           <table class="table table-bordered table-hover table-striped">
@@ -8,9 +8,9 @@
               <tr style="background-color:#9AFF9A">
                 <th class="tac" style="width:10%">序号</th>
                 <th class="tac" style="width:20%">科目</th>
-                <th class="tac" style="width:20%">{{getDate(2)}}</th>
-                <th class="tac" style="width:20%">{{getDate(1)}}</th>
                 <th class="tac" style="width:20%">{{getDate(0)}}</th>
+                <th class="tac" style="width:20%">{{getDate(1)}}</th>
+                <th class="tac" style="width:20%">{{getDate(2)}}</th>
               </tr>
             </thead>
             <tbody>
@@ -24,8 +24,9 @@
             </tbody>
           </table>
           <div class="center">
-            <el-button type="success" @click="submit()" round>提交分析</el-button>
+            <el-button type="success" @click="submit()" round v-loading.fullscreen.lock="loading">提交分析</el-button>
             <el-button type="danger" @click="reset()" round>重置</el-button>
+            <!-- <el-button type="danger" @click="test()" round>测试</el-button> -->
           </div>
           <div style="height:30px">
             
@@ -37,16 +38,16 @@
           <el-collapse accordion>
               <el-collapse-item>
                 <template slot="title">
-                  偿债能力分析<i class="header-icon el-icon-info"></i>
+                  <i class="header-icon el-icon-goods">&nbsp;&nbsp;</i>偿债能力分析 &nbsp;&nbsp;
                 </template>
                 <div>
                   <table class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                           <th class="tac" style="width:10%">指标名称</th>
-                          <th class="tac" style="width:20%">{{getDate(2)}}</th>
-                          <th class="tac" style="width:20%">{{getDate(1)}}</th>
                           <th class="tac" style="width:20%">{{getDate(0)}}</th>
+                          <th class="tac" style="width:20%">{{getDate(1)}}</th>
+                          <th class="tac" style="width:20%">{{getDate(2)}}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -63,7 +64,7 @@
                   <el-collapse accordion>
                     <el-collapse-item style="background: red" v-for="repay in repayList" :key="repay.no">
                       <template slot="title">
-                        {{repay.name}}<i class="header-icon el-icon-info"></i>
+                        <i class="header-icon el-icon-edit"></i>&nbsp;&nbsp;{{repay.name}}&nbsp;&nbsp;<i class="header-icon el-icon-edit"></i>
                       </template>
                       <div>计算公式：{{repay.formula}}</div>
                       <div>{{repay.analys}}</div>
@@ -73,16 +74,16 @@
               </el-collapse-item>
                         <el-collapse-item>
                 <template slot="title">
-                  营运能力分析<i class="header-icon el-icon-info"></i>
+                 <i class="header-icon el-icon-tickets"></i>&nbsp;&nbsp;营运能力分析
                 </template>
                 <div>
                   <table class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                           <th class="tac" style="width:10%">指标名称</th>
-                          <th class="tac" style="width:20%">{{getDate(2)}}</th>
-                          <th class="tac" style="width:20%">{{getDate(1)}}</th>
                           <th class="tac" style="width:20%">{{getDate(0)}}</th>
+                          <th class="tac" style="width:20%">{{getDate(1)}}</th>
+                          <th class="tac" style="width:20%">{{getDate(2)}}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -99,7 +100,7 @@
                   <el-collapse accordion>
                     <el-collapse-item  v-for="operate in operateList" :key="operate.no">
                       <template slot="title">
-                        {{operate.name}}<i class="header-icon el-icon-info"></i>
+                        <i class="header-icon el-icon-edit"></i>&nbsp;&nbsp;{{operate.name}}&nbsp;&nbsp;<i class="header-icon el-icon-edit"></i>
                       </template>
                       <div>计算公式：{{operate.formula}}</div>
                       <div>{{operate.analys}}</div>
@@ -109,16 +110,16 @@
               </el-collapse-item>
                         <el-collapse-item>
                 <template slot="title">
-                  盈利能力分析<i class="header-icon el-icon-info"></i>
+                 <i class="header-icon el-icon-news"></i> &nbsp;&nbsp;盈利能力分析
                 </template>
                 <div>
                   <table class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                           <th class="tac" style="width:10%">指标名称</th>
-                          <th class="tac" style="width:20%">{{getDate(2)}}</th>
-                          <th class="tac" style="width:20%">{{getDate(1)}}</th>
                           <th class="tac" style="width:20%">{{getDate(0)}}</th>
+                          <th class="tac" style="width:20%">{{getDate(1)}}</th>
+                          <th class="tac" style="width:20%">{{getDate(2)}}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -135,7 +136,7 @@
                   <el-collapse accordion>
                     <el-collapse-item  v-for="profit in profitList" :key="profit.no">
                       <template slot="title">
-                        {{profit.name}}<i class="header-icon el-icon-info"></i>
+                        <i class="header-icon el-icon-edit"></i>&nbsp;&nbsp;{{profit.name}}&nbsp;&nbsp;<i class="header-icon el-icon-edit"></i>
                       </template>
                       <div>计算公式：{{profit.formula}}</div>
                       <div>{{profit.analys}}</div>
@@ -375,15 +376,13 @@ export default {
       ],
       repayList:[],
       operateList:[],
-      profitList:[]
+      profitList:[],
+      loading: false
     };
   },
   methods: {
     save() {
       sessionStorage.setItem("assets", lu);
-    },
-    test(){
-      console.log(this.list);
     },
     getDate(num){
       var data = new Date();
@@ -396,24 +395,55 @@ export default {
         this.list[i].mid = "";
         this.list[i].after = "";
       }
+      this.$message('重置完毕！');
+    },
+    test(){
+      for(var i in this.list){
+        this.list[i].before = 1;
+        this.list[i].mid = 1;
+        this.list[i].after = 1;
+      }
+      this.$message('填写完毕！');
     },
     submit () {
+      var reg = /^(-?\d+)(\.\d+)?$/;
+      for(var i in this.list){
+        if(!reg.test(this.list[i].before)||!reg.test(this.list[i].mid)||!reg.test(this.list[i].after)){
+          this.rightOpen(this.list[i].name);
+          return;
+        }
+      }
+
+      this.loading = true;
+       //postHttp("http://39.105.116.107/juno/finance/analys",this.list).then(res => {
        postHttp("http://localhost:8320/juno/finance/analys",this.list).then(res => {
-    
          if(res.data.status.substr(0,2) == "20"){
-           alert("分析成功");
-           this.repayList = res.data.result.repay;
-           this.operateList = res.data.result.operate;
-           this.profitList = res.data.result.profit;
-           this.analy = false;
+           
+            this.repayList = res.data.result.repay;
+            this.operateList = res.data.result.operate;
+            this.profitList = res.data.result.profit;
+            this.analy = false;
+            this.$message({
+              message: '恭喜!分析成功！',
+              type: 'success'
+            });
          }else {
-           alert(res.data.message);
+           this.$message.error('错误!'+res.data.message);
          }
       });
+      this.loading = false;
     },
     reback(){
       this.analy = true;
-    }
+    },
+    rightOpen(name) {
+        this.$notify({
+          title: '错误',
+          message: '【'+name+'】 科目数据未填写或填写错误！若无数据请填0。',
+          position: 'bottom-right',
+          type: 'warning'
+        });
+      }
   }
 };
 </script>

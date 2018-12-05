@@ -18,8 +18,8 @@
         >
         <el-menu-item index="/" ><i class="el-icon-news" style="color:white"></i>Home</el-menu-item>
         <el-menu-item index="Financial" ><i class="el-icon-edit" style="color:white"></i>Financial Analysis</el-menu-item>
-        <el-menu-item index="PDF"><i class="el-icon-tickets" style="color:white"></i>PDF Split</el-menu-item>
         <el-menu-item index="Tools"><i class="el-icon-goods" style="color:white"></i>Common Tools</el-menu-item>
+        <el-menu-item index="PDF" disabled><i class="el-icon-tickets" style="color:white"></i>PDF Split</el-menu-item>
         <el-menu-item index="Add" disabled><i class="el-icon-more-outline" style="color:white"></i>待添加</el-menu-item>
       </el-menu>
     </div>
